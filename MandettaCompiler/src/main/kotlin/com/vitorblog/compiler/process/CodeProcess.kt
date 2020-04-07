@@ -1,23 +1,35 @@
 package com.vitorblog.compiler.process
 
+import com.andreapivetta.kolor.lightRed
+import com.vitorblog.compiler.model.MandettaClass
+
 object CodeProcess {
+    var actualLine = 0
 
     fun load(lines:List<String>){
-        lines.forEach { line ->
+        lines.withIndex().forEach { obj ->
+            val line = obj.value
+            actualLine = obj.index
 
-            when {
-                line.startsWith("//") -> {}
+            try {
 
-                line.contains("var") -> {
+                when {
+                    line.startsWith("//") -> {}
 
-                    VariableProcess.load(line)
+                    line.contains("var") -> {
 
+                        VariableProcess.load(line)
+
+                    }
+                    else -> {
+
+                        FunctionProcess.load(line)
+
+                    }
                 }
-                else -> {
 
-                    FunctionProcess.load(line)
-
-                }
+            } catch (exception:Exception) {
+                MandettaClass.instance.print("Exception found at line ${actualLine+1}: ${exception.message}\n".lightRed())
             }
 
         }
