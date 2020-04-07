@@ -5,5 +5,4 @@ println("What is your name?")
 input(name)
 
 // Show the name
-print("Hello ")
-print(name)
+print("Hello {name}")
