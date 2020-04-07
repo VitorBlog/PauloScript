@@ -6,6 +6,8 @@ object CodeProcess {
         lines.forEach { line ->
 
             when {
+                line.startsWith("//") -> {}
+
                 line.contains("var") -> {
 
                     VariableProcess.load(line)
