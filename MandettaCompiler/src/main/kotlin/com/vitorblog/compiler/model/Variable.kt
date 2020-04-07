@@ -3,7 +3,7 @@ package com.vitorblog.compiler.model
 import com.vitorblog.compiler.model.exception.InvalidVarNameException
 import com.vitorblog.compiler.model.exception.VarNameParseException
 import com.vitorblog.compiler.parser.ValueParser
-import com.vitorblog.compiler.validator.NameValidator
+import com.vitorblog.compiler.util.StringUtils
 import java.util.regex.Pattern
 
 class Variable(string: String) {
@@ -18,7 +18,7 @@ class Variable(string: String) {
         if (matcher.find()){
             name = matcher.group(0).replace(" ", "")
 
-            if (!NameValidator.isValid(name)){
+            if (StringUtils.isInvalid(name)){
                 throw InvalidVarNameException()
             }
         } else {

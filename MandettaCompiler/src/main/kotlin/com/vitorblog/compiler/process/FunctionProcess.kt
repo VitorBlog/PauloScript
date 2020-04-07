@@ -4,6 +4,7 @@ import com.vitorblog.compiler.dao.VariableDao
 import com.vitorblog.compiler.model.MandettaClass
 import com.vitorblog.compiler.model.Variable
 import com.vitorblog.compiler.parser.ValueParser
+import com.vitorblog.compiler.util.StringUtils
 import java.util.regex.Pattern
 
 object FunctionProcess {
@@ -27,10 +28,10 @@ object FunctionProcess {
             "println" -> {
                 var text = ""
                 val arg = arguments[0]
-                if (arg.contains("\"")){
-                    text = ValueParser.parseValue(arg).toString()
+                text = if (StringUtils.isString(arg)){
+                    ValueParser.parseValue(arg).toString()
                 } else {
-                    text = VariableDao[arg]!!.value.toString()
+                    VariableDao[arg]!!.value.toString()
                 }
 
                 MandettaClass.instance.print("$text\n")

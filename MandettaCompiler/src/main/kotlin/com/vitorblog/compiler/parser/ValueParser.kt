@@ -1,25 +1,28 @@
 package com.vitorblog.compiler.parser
 
+import com.vitorblog.compiler.util.StringUtils
 import java.lang.Exception
 
 object ValueParser {
 
     fun parseValue(string: String):Any? {
-
-        if (string.contains("\"") || string.contains("'")) {
-            return string.substring(1, string.length-1)
-        }
-        if (string.endsWith("e")){
-            return string == "true"
-        }
-        if (string == "null") {
-            return null
-        }
-
-        return try {
-            string.toInt()
-        } catch (exception:Exception) {
-            null
+        when {
+            StringUtils.isString(string) -> {
+                return string.substring(1, string.length-1)
+            }
+            StringUtils.isBoolean(string) -> {
+                return string == "true"
+            }
+            string == "null" -> {
+                return null
+            }
+            else -> {
+                return try {
+                    string.toInt()
+                } catch (exception:Exception) {
+                    null
+                }
+            }
         }
     }
 
