@@ -1,0 +1,3 @@
+var string = "I'm a string! Look how i'm cool"
+println(string)
+println("Bolso de mijo go to Cuba please...")
