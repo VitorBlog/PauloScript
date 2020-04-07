@@ -26,15 +26,38 @@ object FunctionProcess {
         when (name) {
 
             "println" -> {
-                var text = ""
                 val arg = arguments[0]
-                text = if (StringUtils.isString(arg)){
+                val text = if (StringUtils.isString(arg)){
                     ValueParser.parseValue(arg).toString()
                 } else {
                     VariableDao[arg]!!.value.toString()
                 }
 
                 MandettaClass.instance.print("$text\n")
+            }
+
+            "print" -> {
+                val arg = arguments[0]
+                val text = if (StringUtils.isString(arg)){
+                    ValueParser.parseValue(arg).toString()
+                } else {
+                    VariableDao[arg]!!.value.toString()
+                }
+
+                MandettaClass.instance.print(text)
+            }
+
+            "input" -> {
+                val arg = arguments[0]
+                val variable = if (VariableDao.contains(arg)){
+                    VariableDao[arg]!!
+                } else {
+                    Variable("var $arg = \"\"")
+                }
+
+                variable.value = readLine()!!
+
+                VariableDao.add(variable)
             }
 
         }
