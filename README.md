@@ -1,5 +1,5 @@
 # PseudoMandetta / PseudoCodeWithRegex
-I thought about it the other day and I'm going to test it to see what's going to happen;
+A pseudo-language who in the future can be used to teach programming for any language by it's the easy modification of names and functions.
 
 ## F A Q
  * Why PseudoMandetta ➤ Today, when I opened the 🇧🇷 newspaper (04/04/20), the pages was full of news of the Minister of Health, so...
