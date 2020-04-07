@@ -1,3 +1,9 @@
-var string = "I'm a string! Look how i'm cool"
-println(string)
-println("Bolso de mijo go to Cuba please...")
+// Send the question
+println("What is your name?")
+
+// Open the input
+input(name)
+
+// Show the name
+print("Hello ")
+print(name)
