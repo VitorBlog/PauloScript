@@ -6,6 +6,7 @@ I thought about it the other day and I'm going to test it to see what's going to
  * Why use fcking RegEx ➤ I literally only send on guild "Why not" and started it.
 
 ## Info
- * Koltin: 1.3.71
+ * Kotlin: 1.3.71
  * File extension: sus
- * Actual version: 0.1
+ * Actual version: [0.1](https://github.com/VitorBlog/PseudoMandetta/releases)
+ * [Documentation](https://github.com/VitorBlog/PseudoMandetta/wiki)
