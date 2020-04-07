@@ -6,6 +6,7 @@ import com.vitorblog.compiler.model.Variable
 import com.vitorblog.compiler.parser.ValueParser
 import com.vitorblog.compiler.util.StringUtils
 import java.util.regex.Pattern
+import kotlin.random.Random
 
 object FunctionProcess {
 
@@ -56,6 +57,24 @@ object FunctionProcess {
                 }
 
                 variable.value = readLine()!!
+
+                VariableDao.add(variable)
+            }
+
+            "random" -> {
+                val arg = arguments[0]
+                val max = if (arguments.size > 1){ arguments[1] }else{ null }
+                val variable = if (VariableDao.contains(arg)){
+                    VariableDao[arg]!!
+                } else {
+                    Variable("var $arg = \"\"")
+                }
+
+                variable.value = if (max != null) {
+                    Random.nextInt(max.toInt())
+                } else {
+                    Random.nextInt()
+                }
 
                 VariableDao.add(variable)
             }
