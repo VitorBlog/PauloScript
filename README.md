@@ -10,3 +10,7 @@ A pseudo-language who in the future can be used to teach programming for any lan
  * File extension: sus
  * Actual version: [0.1](https://github.com/VitorBlog/PseudoMandetta/releases)
  * [Documentation](https://github.com/VitorBlog/PseudoMandetta/wiki)
+
+## Translates
+ * [🇧🇷](https://github.com/VitorBlog/PseudoMandetta/blob/master/README_BR.md)
+ * [🇺🇸](https://github.com/VitorBlog/PseudoMandetta/blob/master/README.md)
