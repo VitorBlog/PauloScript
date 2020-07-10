@@ -1,0 +1,19 @@
+<idea-plugin>
+  <id>com.vitorpaulo.mandettaplugin</id>
+  <name>MandettaPlugin</name>
+  <version>1.0</version>
+  <vendor email="eu@vitorblog.com" url="http://vitorpaulo.dev">Vitor Paulo</vendor>
+
+  <idea-version since-build="173.0"/>
+
+  <depends>com.intellij.modules.platform</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+  </extensions>
+
+  <actions>
+    <!-- Add your actions here -->
+  </actions>
+
+</idea-plugin>
