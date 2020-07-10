@@ -7,9 +7,10 @@
   <idea-version since-build="173.0"/>
 
   <depends>com.intellij.modules.platform</depends>
+  <depends>com.intellij.modules.lang</depends>
 
   <extensions defaultExtensionNs="com.intellij">
-    <!-- Add your extensions here -->
+    <fileTypeFactory implementation="com.vitorpaulo.mandettaplugin.MandettaFileTypeFactory"/>
   </extensions>
 
   <actions>
