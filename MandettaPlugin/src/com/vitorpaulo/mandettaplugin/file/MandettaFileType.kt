@@ -1,6 +1,7 @@
-package com.vitorpaulo.mandettaplugin
+package com.vitorpaulo.mandettaplugin.file
 
 import com.intellij.openapi.fileTypes.LanguageFileType
+import com.vitorpaulo.mandettaplugin.MandettaLanguage
 
 object MandettaFileType : LanguageFileType(MandettaLanguage) {
 
