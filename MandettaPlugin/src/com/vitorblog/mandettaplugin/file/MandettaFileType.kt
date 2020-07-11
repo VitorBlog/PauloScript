@@ -5,6 +5,8 @@ import com.vitorpaulo.mandettaplugin.MandettaLanguage
 
 object MandettaFileType : LanguageFileType(MandettaLanguage) {
 
+    val instance = this
+
     override
     fun getDefaultExtension() = "sus"
 
@@ -12,7 +14,7 @@ object MandettaFileType : LanguageFileType(MandettaLanguage) {
     fun getIcon() = MandettaLanguage.icon
 
     override
-    fun getName() = "PseudoMandetta"
+    fun getName() = "PseudoMandetta File"
 
     override
     fun getDescription() = "PseudoLanguage for programming students"
