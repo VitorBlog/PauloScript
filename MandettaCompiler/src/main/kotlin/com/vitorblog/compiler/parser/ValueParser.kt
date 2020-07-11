@@ -2,7 +2,12 @@ package com.vitorblog.compiler.parser
 
 import com.vitorblog.compiler.dao.VariableDao
 import com.vitorblog.compiler.util.StringUtils
+import jdk.nashorn.tools.ShellFunctions.input
+import java.util.*
+import java.util.regex.Matcher
 import java.util.regex.Pattern
+import kotlin.collections.ArrayList
+
 
 object ValueParser {
 
@@ -11,20 +16,22 @@ object ValueParser {
             StringUtils.isString(string) -> {
                 val pattern = Pattern.compile("\\{(.*?)\\}")
                 val matcher = pattern.matcher(string)
-                if (matcher.find()) {
+                val matches = matcher.allMatches()
+
+                if (matches.isNotEmpty()) {
+
                     var newString = string
+                    for (match in matches) {
 
-                    for (match in 0 until matcher.groupCount()) {
-
-                        val matchString = matcher.group(match)
                         newString = newString.replace(
-                            matchString,
-                            VariableDao[matchString.substring(1, matchString.length - 1)]!!.value.toString()
+                            match,
+                            VariableDao[match.substring(1, match.length - 1)]!!.value.toString()
                         )
 
                     }
 
                     return newString.substring(1, newString.length - 1)
+
                 }
 
                 return string.substring(1, string.length - 1)
@@ -53,6 +60,17 @@ object ValueParser {
             parseValue(string)
         }
 
+    }
+
+    private
+    fun Matcher.allMatches(): ArrayList<String> {
+        val arrayList = arrayListOf<String>()
+
+        while (this.find()) {
+            arrayList.add(this.group())
+        }
+
+        return arrayList
     }
 
 }
