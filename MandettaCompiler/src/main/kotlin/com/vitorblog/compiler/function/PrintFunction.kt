@@ -15,13 +15,9 @@ class PrintFunction : Function {
     fun execute(arguments: List<String>) {
 
         val arg = arguments[0]
-        val text = if (StringUtils.isString(arg)) {
-            ValueParser.parseValue(arg).toString()
-        } else {
-            VariableDao[arg]!!.value.toString()
-        }
+        val text = ValueParser.getRealValue(arg)
 
-        MandettaClass.instance.print(text)
+        MandettaClass.instance.mandettaHandler.consoleOutput(text.toString())
 
     }
 

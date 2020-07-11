@@ -10,4 +10,6 @@ object VariableDao {
 
     operator fun get(name:String) = VARIABLES[name]
 
+    fun contains(name:String) = VARIABLES.containsKey(name)
+
 }

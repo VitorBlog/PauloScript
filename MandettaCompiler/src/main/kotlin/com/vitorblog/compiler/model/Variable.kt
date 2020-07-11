@@ -8,17 +8,17 @@ import java.util.regex.Pattern
 
 class Variable(string: String) {
 
-    var name:String
-    var value:Any? = null
+    var name: String
+    var value: Any? = null
 
     init {
         var pattern = Pattern.compile(" (.*?) ")
         var matcher = pattern.matcher(string)
 
-        if (matcher.find()){
+        if (matcher.find()) {
             name = matcher.group(0).replace(" ", "")
 
-            if (StringUtils.isInvalid(name)){
+            if (StringUtils.isInvalid(name)) {
                 throw InvalidVarNameException()
             }
         } else {
@@ -28,7 +28,7 @@ class Variable(string: String) {
         pattern = Pattern.compile("([^=]+)")
         matcher = pattern.matcher(string)
 
-        value = if (matcher.find()){
+        value = if (matcher.find()) {
             val unparsedValue = string.replace("${matcher.group(1)}= ", "")
             ValueParser.parseValue(unparsedValue)
         } else {

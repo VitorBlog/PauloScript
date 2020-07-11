@@ -4,18 +4,21 @@ import com.vitorblog.compiler.process.CodeProcess
 import java.io.File
 import java.time.Duration
 import java.time.Instant
+import java.util.function.Consumer
 
-class MandettaClass(val file: File) {
+class MandettaClass(file: File, val mandettaHandler: MandettaHandler = TerminalHandler()) {
 
     companion object {
         lateinit var instance: MandettaClass
     }
 
     val name = file.nameWithoutExtension
-    val code = file.readText()
-    private val lines = file.readLines()
-    var output: String = ""
     var elapsedTime = 0
+
+    val code = file.readText()
+    val lines = file.readLines()
+
+    var input: Consumer<String>? = null
 
     init {
         instance = this
@@ -25,11 +28,6 @@ class MandettaClass(val file: File) {
         val finish = Instant.now()
 
         elapsedTime = (Duration.between(start, finish).toMillis()/1000.0).toInt()
-    }
-
-    fun print(s: String) {
-        kotlin.io.print(s)
-        output += s
     }
 
 }

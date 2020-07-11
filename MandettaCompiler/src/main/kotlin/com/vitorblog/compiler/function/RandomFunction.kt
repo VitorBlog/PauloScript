@@ -8,7 +8,7 @@ import kotlin.random.Random
 class RandomFunction : Function {
 
     override val name = "random"
-    override val args = 0
+    override val args = 1
 
     override
     fun execute(arguments: List<String>) {

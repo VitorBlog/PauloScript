@@ -34,7 +34,7 @@ object CodeProcess {
                     }
 
                     line.startsWith("else") -> {
-                        
+
                         IFProcess.loadElse()
 
                     }
@@ -55,6 +55,7 @@ object CodeProcess {
 
             } catch (exception: Exception) {
                 MandettaClass.instance.print("Exception found at line ${actualLine + 1}: ${exception.message}\n".red())
+                exception.printStackTrace()
             }
 
         }

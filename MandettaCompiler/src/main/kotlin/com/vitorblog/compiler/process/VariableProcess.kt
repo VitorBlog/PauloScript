@@ -5,7 +5,7 @@ import com.vitorblog.compiler.model.Variable
 
 object VariableProcess {
 
-    fun load(line:String){
+    fun load(line: String) {
         VariableDao.add(Variable(line))
     }
 

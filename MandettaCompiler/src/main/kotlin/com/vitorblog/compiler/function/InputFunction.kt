@@ -2,7 +2,9 @@ package com.vitorblog.compiler.function
 
 import com.vitorblog.compiler.dao.VariableDao
 import com.vitorblog.compiler.model.Function
+import com.vitorblog.compiler.model.MandettaClass
 import com.vitorblog.compiler.model.Variable
+import java.util.function.Consumer
 
 class InputFunction : Function {
 
@@ -19,7 +21,7 @@ class InputFunction : Function {
             Variable("var $arg = \"\"")
         }
 
-        variable.value = readLine()!!
+        MandettaClass.instance.mandettaHandler.consoleInput(Consumer { variable.value = it })
 
         VariableDao.add(variable)
 
